@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'test-learning';
+  title = 'learning';
+  public users: any[] = [];
+
+  constructor(private http: HttpClient) {
+
+  }
+  public getAllUsers(): void {
+    this.http.get<any[]>('http://localhost:3000/users').subscribe( data => {
+      console.log('data', data);
+      this.users = data;
+    })
+  }
 }
+

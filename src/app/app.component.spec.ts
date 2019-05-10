@@ -28,4 +28,20 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to test-learning!');
   });
+  it('should render Nastia name in a span tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('span').textContent).toContain('Nastia');
+  });
+  it('should plus two numbers', () => {
+    // const fixture = TestBed.createComponent(AppComponent);
+    // fixture.detectChanges();
+    // const compiled = fixture.debugElement.nativeElement;
+    const sumNumbers = function(x: number, y: number): number {
+      return x + y;
+    };
+
+    expect(sumNumbers(3, 3)).toEqual(6);
+  });
 });
