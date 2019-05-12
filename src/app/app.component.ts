@@ -15,7 +15,7 @@ export class AppComponent {
 
   }
   public getAllUsers(): void {
-    this.http.get<any[]>('http://localhost:3000/users').subscribe( data => {
+    this.http.get<any[]>('http://ec2-3-16-216-58.us-east-2.compute.amazonaws.com/users').subscribe( data => {
       console.log('data', data);
       this.users = data;
     })
